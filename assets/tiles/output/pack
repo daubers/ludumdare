@@ -1,0 +1,68 @@
+
+input1.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+level1
+  rotate: false
+  xy: 0, 0
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+level1
+  rotate: false
+  xy: 0, 34
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
+level1
+  rotate: false
+  xy: 0, 68
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 7
+level1
+  rotate: false
+  xy: 0, 102
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 10
+level1
+  rotate: false
+  xy: 0, 136
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 13
+level1
+  rotate: false
+  xy: 0, 170
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 16
+level1
+  rotate: false
+  xy: 0, 204
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 19
+level1
+  rotate: false
+  xy: 0, 238
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 22
+level1
+  rotate: false
+  xy: 0, 272
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 25

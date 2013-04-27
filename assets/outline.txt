@@ -1,0 +1,32 @@
+Minimal Game
+
+What are the bare essentials of a game?
+ - Score
+ - Player
+ - Something to compete against?
+
+Simple geometric space shooter?
+
+Simple quiz type thing? - Boring!
+
+Triangles vs Cubes/Circles?
+
+The triangle rebellion has begun! All hail the 180's! The 360's suck!
+
+Long has it been that the Triangles have been Mocked by the Circles and Squares for
+containing pi radians and not the holy blessed 2pi radians.
+
+The Triangles have long fought for equality amongst the Circles and Squares, but now
+enough is enough! War has finally come to their universe.
+
+Fight your way through the Circles and Squares to get to the Crossing of Line Segments, 
+the ruler of the universe. Only it can revoke the laws of 2Pi.
+
+
+--Collision Detection Plan--
+
+There are only half a dozen tiles in total, so first look to see what the id of the tile
+we're on is, then check to see if the point we're in on that tile is bounded or not.
+
+Store boundings in a json file for now? Just load them all into memory with the detection
+class.
