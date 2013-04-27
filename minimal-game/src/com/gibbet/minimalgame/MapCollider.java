@@ -65,6 +65,10 @@ public class MapCollider {
 	
 	public int getTileId(int layer, int x, int y){
 		//dGdx.app.log("Hmmm", String.valueOf(x)+"-"+String.valueOf(map.height-1-y));
+		if (x<0)
+			x=0;
+		if ((map.height-1-y)<0)
+			y=0;
 		return map.layers.get(layer).tiles[map.height-1-y][x];
 	}
 	

@@ -15,7 +15,7 @@ public class Bullet1 extends MoveableEntity{
 		this.setTexture(new Texture("data/weapons/bullet1.png"));
 		this.texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		this.velocity = velocity;
-		Gdx.app.log("Velocity", "x - " + velocity.x + " y - "+velocity.y);
+		//Gdx.app.log("Velocity", "x - " + velocity.x + " y - "+velocity.y);
 	}
 	
 	public int getRange(){
@@ -24,7 +24,7 @@ public class Bullet1 extends MoveableEntity{
 	@Override
 	public void update(){
 		position.add(velocity.tmp().mul(Gdx.graphics.getDeltaTime() * SPEED));
-		Gdx.app.log("Position", "x - " + position.x + " y - "+position.y);
+		//Gdx.app.log("Position", "x - " + position.x + " y - "+position.y);
 		rotation = velocity.angle() - 90;
 		super.update();
 	}

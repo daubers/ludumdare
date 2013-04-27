@@ -6428,6 +6428,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -6526,6 +6528,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="3"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -7024,6 +7028,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -7122,6 +7128,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="3"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -7619,6 +7627,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -7716,6 +7726,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="1"/>
+   <tile gid="5"/>
+   <tile gid="3"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -7813,21 +7826,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="3"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -10007,4 +10007,24 @@
    <tile gid="0"/>
   </data>
  </layer>
+ <objectgroup name="circles" width="100" height="100">
+  <object x="624" y="1592" width="296" height="364"/>
+  <object x="1168" y="1388"/>
+  <object x="172" y="2212" width="204" height="356"/>
+  <object x="1172" y="1980" width="1164" height="864"/>
+  <object x="876" y="2216" width="132" height="132"/>
+  <object x="1340" y="1312" width="1192" height="484"/>
+  <object x="356" y="1440" width="324" height="220"/>
+  <object x="232" y="2728" width="84" height="80"/>
+  <object x="248" y="1736" width="172" height="148"/>
+  <object x="280" y="1956" width="232" height="96"/>
+  <object x="864" y="2112" width="84" height="56"/>
+  <object x="784" y="2356" width="36" height="20"/>
+  <object x="936" y="2500" width="84" height="92"/>
+  <object x="1408" y="2960" width="232" height="160"/>
+  <object x="1668" y="1844" width="116" height="56"/>
+  <object x="1064" y="1404" width="96" height="160"/>
+  <object x="496" y="1280" width="192" height="24"/>
+  <object x="60" y="2676" width="224" height="124"/>
+ </objectgroup>
 </map>

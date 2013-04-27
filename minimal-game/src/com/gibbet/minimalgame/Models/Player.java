@@ -17,10 +17,20 @@ public class Player extends MoveableEntity{
 		this.setSprite(new Sprite(this.getTexture()));
 	}
 	
+	public void addScore(float score){
+		this.score = this.score + score;
+	}
 	
+	public float getScore(){
+		return score;	
+	}
 	
 	public void update(){
 		position.add(velocity.tmp().mul(Gdx.graphics.getDeltaTime() * SPEED));
+		if (position.x<=0)
+			position.x = 0;
+		if (position.y<=0)
+			position.y = 0;
 		//Gdx.app.log("Position", "x - "+position.x+" y - "+position.y);
 		if (velocity.x !=0 || velocity.y !=0){
 			rotation = velocity.angle() - 90;

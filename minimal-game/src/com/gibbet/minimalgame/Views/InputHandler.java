@@ -1,6 +1,7 @@
 package com.gibbet.minimalgame.Views;
 
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -36,6 +37,9 @@ public class InputHandler implements InputProcessor {
 			break;
 		case Keys.D:
 			player.getVelocity().x = 1;
+			break;
+		case Keys.C:
+			Gdx.app.log("Ship pos", "X=" + player.getPosition().x + " Y="+player.getPosition().y);
 			break;
 		case Keys.SPACE:
 			Vector2 bulletVelocity = new Vector2(0,1);
