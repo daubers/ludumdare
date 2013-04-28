@@ -6,17 +6,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.gibbet.minimalgame.Models.Bullet1;
 import com.gibbet.minimalgame.Models.CircleEnemy;
 import com.gibbet.minimalgame.Models.Player;
+import com.gibbet.minimalgame.Models.SquareEnemy;
 
 public class WorldRenderer {
 	World world;
@@ -26,6 +25,8 @@ public class WorldRenderer {
 	Player player;
 	CircleEnemy enemy;
 	Iterator<CircleEnemy> cIter;
+	SquareEnemy s;
+	Iterator<SquareEnemy> sIter;
 	Iterator<Bullet1> bIter;
 	Bullet1 bullet;
 	BitmapFont white;
@@ -34,6 +35,9 @@ public class WorldRenderer {
 
 	Label health;
 	Label score;
+	Label circlesLeft;
+	Label squaresLeft;
+	Label lives;
 	
 	private static final int[] layersList = { 0 };
 	
@@ -66,6 +70,17 @@ public class WorldRenderer {
 		score = new Label("Score: ", new LabelStyle(white,Color.BLUE));
 		//score.setPosition(stage.getWidth() - score.getMaxWidth(),stage.getHeight() - score.getMaxHeight());
 		score.setPosition(stage.getWidth() - 200 ,stage.getHeight()-30);
+		
+		circlesLeft = new Label("Circles: ", new LabelStyle(white,Color.BLUE));
+		circlesLeft.setPosition(stage.getWidth() - 200, stage.getHeight()-60);
+		squaresLeft = new Label("Squares: ", new LabelStyle(white,Color.BLUE));
+		squaresLeft.setPosition(stage.getWidth() - 200, stage.getHeight()-90);
+		lives = new Label("Lives: ", new LabelStyle(white,Color.BLUE));
+		lives.setPosition(200,0);
+		
+		stage.addActor(lives);
+		stage.addActor(squaresLeft);
+		stage.addActor(circlesLeft);
 		stage.addActor(score);
 		stage.addActor(health);
 	}
@@ -98,7 +113,21 @@ public class WorldRenderer {
 				if (enemy.getBullet() != null){
 					batch.draw(enemy.getBullet().getTexture(), enemy.getBullet().getPosition().x, enemy.getBullet().getPosition().y, enemy.getBullet().getWidth()/2, enemy.getBullet().getHeight()/2, enemy.getBullet().getWidth(), enemy.getBullet().getHeight(), 1, 1, enemy.getBullet().getRotation(), 0, 0, enemy.getBullet().getTexture().getWidth(), enemy.getBullet().getTexture().getHeight(), false, false);
 				}
-				batch.draw(enemy.getTexture(), enemy.getPosition().x, enemy.getPosition().y, enemy.getWidth()/2, enemy.getHeight()/2, enemy.getWidth(), enemy.getHeight(), 1, 1, enemy.getRotation(), 0, 0, enemy.getTexture().getWidth(), enemy.getTexture().getHeight(), false, false);	 
+				batch.draw(enemy.getTexture(), enemy.getPosition().x, enemy.getPosition().y, enemy.getWidth()/2, enemy.getHeight()/2, enemy.getWidth(), enemy.getHeight(), 2, 2, enemy.getRotation(), 0, 0, enemy.getTexture().getWidth(), enemy.getTexture().getHeight(), false, false);	 
+			}
+			
+			sIter = world.squares.iterator();
+			while (sIter.hasNext()){
+				s = sIter.next();
+				s.update(player);
+				if (s.getBullets().size > 0){
+					bIter = s.getBullets().iterator();
+					while (bIter.hasNext()){
+							bullet = bIter.next();
+							batch.draw(bullet.getTexture(), bullet.getPosition().x, bullet.getPosition().y,bullet.getWidth()/2, bullet.getHeight()/2, bullet.getWidth(), bullet.getHeight(), 1, 1, bullet.getRotation(), 0, 0, bullet.getTexture().getWidth(), bullet.getTexture().getHeight(), false, false);
+					}
+				}
+				batch.draw(s.getTexture(), s.getPosition().x, s.getPosition().y, s.getWidth()/2, s.getHeight()/2, s.getWidth(), s.getHeight(), 2, 2, s.getRotation(), 0, 0, s.getTexture().getWidth(), s.getTexture().getHeight(), false, false);	 
 			}
 			
 			bIter = world.getBullets().iterator();
@@ -108,8 +137,11 @@ public class WorldRenderer {
 			}
 		batch.end();
 		
+		squaresLeft.setText("Squares: " + world.squares.size);
+		circlesLeft.setText("Circles: "+ world.circles.size);
 		health.setText("Health: "+player.getHealth());
 		score.setText("Score: "+player.getScore());
+		lives.setText("Lives: "+player.getLives());
 		
 		stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();

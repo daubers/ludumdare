@@ -10027,4 +10027,30 @@
   <object x="496" y="1280" width="192" height="24"/>
   <object x="60" y="2676" width="224" height="124"/>
  </objectgroup>
+ <objectgroup name="squares" width="100" height="100">
+  <object x="24" y="2904" width="88" height="128"/>
+  <object x="132" y="2056" width="580" height="360"/>
+  <object x="1848" y="2884" width="300" height="180"/>
+  <object x="1856" y="1832" width="136" height="116"/>
+  <object x="2284" y="1252"/>
+  <object x="1600" y="1020" width="232" height="216"/>
+  <object x="1048" y="1252" width="952" height="876"/>
+  <object x="2188" y="1956"/>
+  <object x="1480" y="1476" width="92" height="120"/>
+  <object x="1404" y="1692" width="176" height="196"/>
+  <object x="1584" y="1988" width="132" height="76"/>
+  <object x="1816" y="2212" width="172" height="228"/>
+  <object x="1472" y="2456" width="84" height="116"/>
+  <object x="644" y="1632" width="252" height="316"/>
+  <object x="400" y="1904" width="232" height="292"/>
+  <object x="284" y="1756" width="76" height="120"/>
+  <object x="416" y="1564" width="128" height="64"/>
+  <object x="816" y="1292" width="192" height="252"/>
+  <object x="1116" y="1040" width="264" height="184"/>
+  <object x="1708" y="2696" width="184" height="64"/>
+  <object x="2312" y="2980" width="84" height="48"/>
+  <object x="480" y="2516"/>
+  <object x="76" y="1704" width="240" height="288"/>
+  <object x="212" y="1364" width="252" height="284"/>
+ </objectgroup>
 </map>

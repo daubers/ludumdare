@@ -16,6 +16,8 @@ import com.gibbet.minimalgame.MinimalGame;
 import com.gibbet.minimalgame.Models.Bullet1;
 import com.gibbet.minimalgame.Models.CircleEnemy;
 import com.gibbet.minimalgame.Models.Player;
+import com.gibbet.minimalgame.Models.SquareEnemy;
+import com.gibbet.minimalgame.Screens.LoseScreen;
 import com.gibbet.minimalgame.Screens.MiniSounds;
 
 public class World {
@@ -29,8 +31,9 @@ public class World {
     public Array<CircleEnemy> circles = new Array<CircleEnemy>();
     Iterator<CircleEnemy> cIter;
     CircleEnemy c;
-    Iterator<CircleEnemy> cIter2;
-    CircleEnemy c2;
+    Array<SquareEnemy> squares = new Array<SquareEnemy>();
+    Iterator<SquareEnemy> sIter;
+    SquareEnemy s;
     Array<Bullet1> bullets = new Array<Bullet1>();
     Iterator<Bullet1> bIter;
     Bullet1 bullet;
@@ -47,24 +50,36 @@ public class World {
 		// Load the tmx file into map
         map = TiledLoader.createMap(Gdx.files.internal("data/maps/level1.tmx"));
         circles.add(new CircleEnemy(5f,0,new Vector2(5,25),1,1,player,this));
-        int z = 0;
         toIter = map.objectGroups.get(0).objects.iterator();
         while (toIter.hasNext()){
-        	z++;
-        	Gdx.app.log("Iterator Position", String.valueOf(z));
         	to = toIter.next();
         	float x;
         	float y;
         	for (int i=0; i<100; i++){
 	        	x = random.nextFloat()*to.width;
 	        	y = random.nextFloat()*to.height;
-	        	Gdx.app.log("XY", "x="+to.x + " y="+to.y);
-	        	Gdx.app.log("XY", "X="+(to.x+x) + " Y="+(to.y+y));
+	        	//Gdx.app.log("XY", "x="+to.x + " y="+to.y);
+	        	//Gdx.app.log("XY", "X="+(to.x+x) + " Y="+(to.y+y));
 	        	circles.add(new CircleEnemy(5f,0,new Vector2(to.x+x,(map.height*map.tileHeight)-to.y+y),1,1,player,this));
 	        	//Gdx.app.log("Circle created", "x - "+(x+to.x)+" y - "+(y+to.y));
         	}
         }
-        Gdx.app.log("Circle created", String.valueOf(circles.size));
+        //Gdx.app.log("Circles created", String.valueOf(circles.size));
+        toIter = map.objectGroups.get(1).objects.iterator();
+        while (toIter.hasNext()){
+        	to = toIter.next();
+        	float x;
+        	float y;
+        	for (int i=0; i<20; i++){
+	        	x = random.nextFloat()*to.width;
+	        	y = random.nextFloat()*to.height;
+	        	//Gdx.app.log("XY", "x="+to.x + " y="+to.y);
+	        	//Gdx.app.log("XY", "X="+(to.x+x) + " Y="+(to.y+y));
+	        	squares.add(new SquareEnemy(new Vector2(to.x+x,(map.height*map.tileHeight)-to.y+y),1,1));
+	        	//Gdx.app.log("Circle created", "x - "+(x+to.x)+" y - "+(y+to.y));
+        	}
+        }
+        //Gdx.app.log("Squares created", String.valueOf(squares.size));
         // Load the tiles into atlas
         atlas = new TileAtlas(map, Gdx.files.internal("data/tiles/"));
         // Create the renderer
@@ -96,6 +111,10 @@ public class World {
 	}
 	
 	public void update(){
+		if (player.getLives() < 0){
+			MiniSounds.stopLevel1();
+			game.setScreen(new LoseScreen(game,player.getScore()));
+		}
 		if (mc.checkCollision(player.getPosition().add(player.getVelocity().tmp().mul(Gdx.graphics.getDeltaTime() * player.getSpeed())))==true){
 			Gdx.app.log("BOOM", "Crash");
 			player.reduceHealth(1);
@@ -120,9 +139,22 @@ public class World {
 					player.addScore(20);
 					if (c.getHealth()<=0){
 						cIter.remove();
-						Gdx.app.log("Circle created", String.valueOf(circles.size));
 					}
 					bIter.remove();
+					removed=true;
+					break;
+				}
+			}
+			sIter = squares.iterator();
+			while (sIter.hasNext()){
+				s = sIter.next();
+				if (s.getBounds().overlaps(bullet.getBounds())){
+					s.reduceHealth(20);
+					player.addScore(20);
+					if (s.getHealth()<=0){
+						sIter.remove();
+					}
+					sIter.remove();
 					removed=true;
 					break;
 				}
