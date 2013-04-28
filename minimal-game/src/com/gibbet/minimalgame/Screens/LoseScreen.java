@@ -1,7 +1,5 @@
 package com.gibbet.minimalgame.Screens;
 
-import java.awt.Font;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -11,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.gibbet.minimalgame.MinimalGame;
@@ -24,6 +23,7 @@ public class LoseScreen implements Screen{
 	float score;
 	BitmapFont white;
 	Stage stage;
+	Button restart;
 	
 	Label scoreLabel;
 	

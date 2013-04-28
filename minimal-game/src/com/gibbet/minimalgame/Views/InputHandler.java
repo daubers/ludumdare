@@ -41,13 +41,13 @@ public class InputHandler implements InputProcessor {
 		case Keys.C:
 			Gdx.app.log("Ship pos", "X=" + player.getPosition().x + " Y="+player.getPosition().y);
 			break;
-		case Keys.SPACE:
+		/*case Keys.SPACE:
 			Vector2 bulletVelocity = new Vector2(0,1);
 			if (!player.getVelocity().equals(new Vector2(0,0))){
 				bulletVelocity = new Vector2(player.getVelocity());
 			}
 			world.addBullet(new Bullet1(Bullet1.SPEED, 0, new Vector2(player.getPosition().x, player.getPosition().y), 1, 1,bulletVelocity));
-			MiniSounds.shoot();
+			MiniSounds.shoot();*/
 
 		default:
 			break;
@@ -91,7 +91,14 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		return false;
+		touch.set(screenX,screenY,0);
+		world.getRenderer().getCamera().unproject(touch);
+		vec2Touch.set(touch.x, touch.y);
+		player = world.getPlayer();
+		world.addBullet(new Bullet1(Bullet1.SPEED,0,new Vector2(player.getPosition().x, player.getPosition().y),0.5f,0.5f,new Vector2(vec2Touch.sub(player.getPosition()).nor())));
+		MiniSounds.shoot();
+		return true;
+
 
 	}
 

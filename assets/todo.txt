@@ -1,0 +1,9 @@
+Left to Do (in order of importance)
+
+* Change controls to use mouse click to fire
+* Change player firing to fire towards mouse cursor
+
+* You win! Woooo! Screen.
+
+* Starting Menu
+* Splash screen (Corporate branding, woot)
