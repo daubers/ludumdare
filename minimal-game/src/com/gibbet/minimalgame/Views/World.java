@@ -19,6 +19,7 @@ import com.gibbet.minimalgame.Models.Player;
 import com.gibbet.minimalgame.Models.SquareEnemy;
 import com.gibbet.minimalgame.Screens.LoseScreen;
 import com.gibbet.minimalgame.Screens.MiniSounds;
+import com.gibbet.minimalgame.Screens.WinScreen;
 
 public class World {
 	MinimalGame game;
@@ -111,9 +112,12 @@ public class World {
 	}
 	
 	public void update(){
+		if (circles.size == 0 && squares.size == 0){
+			game.setScreen(new WinScreen(game));
+		}
 		if (player.getLives() < 0){
 			MiniSounds.stopLevel1();
-			game.setScreen(new LoseScreen(game,player.getScore()));
+			game.setScreen(new LoseScreen(game));
 		}
 		if (mc.checkCollision(player.getPosition().add(player.getVelocity().tmp().mul(Gdx.graphics.getDeltaTime() * player.getSpeed())))==true){
 			Gdx.app.log("BOOM", "Crash");

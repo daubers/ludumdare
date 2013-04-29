@@ -70,7 +70,7 @@ public class CircleEnemy extends MoveableEntity {
 		}
 		//Gdx.app.log("Pos", "x-" + position.x + " y - "+position.y +" shipX - "+player.position.x+" shipY - "+player.position.y);
 		//only approach once the player is within 100 units
-		if (position.x < player.position.x+20 && position.x > player.position.x-20 && position.y > player.position.y-20 && position.y < player.position.y+20){
+		if (position.x < player.position.x+60 && position.x > player.position.x-60 && position.y > player.position.y-60 && position.y < player.position.y+60){
 			
 			position.lerp(player.position, Gdx.graphics.getDeltaTime());
 			//if we have a bullet, destroy it if it's more than 100 units away

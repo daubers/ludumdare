@@ -1,7 +1,7 @@
 package com.gibbet.minimalgame;
 
 import com.badlogic.gdx.Game;
-import com.gibbet.minimalgame.Screens.GameScreen;
+import com.gibbet.minimalgame.Screens.SplashScreen;
 
 public class MinimalGame extends Game {
 	public static final String VERSION = "0.1-WIP";
@@ -10,7 +10,7 @@ public class MinimalGame extends Game {
 	
 	@Override
 	public void create() {
-		setScreen(new GameScreen(this));
+		setScreen(new SplashScreen(this));
 		
 	}
 

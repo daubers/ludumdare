@@ -95,7 +95,7 @@ public class InputHandler implements InputProcessor {
 		world.getRenderer().getCamera().unproject(touch);
 		vec2Touch.set(touch.x, touch.y);
 		player = world.getPlayer();
-		world.addBullet(new Bullet1(Bullet1.SPEED,0,new Vector2(player.getPosition().x, player.getPosition().y),0.5f,0.5f,new Vector2(vec2Touch.sub(player.getPosition()).nor())));
+		world.addBullet(new Bullet1(Bullet1.SPEED*2,0,new Vector2(player.getPosition().x, player.getPosition().y),0.5f,0.5f,new Vector2(vec2Touch.sub(player.getPosition()).nor())));
 		MiniSounds.shoot();
 		return true;
 
